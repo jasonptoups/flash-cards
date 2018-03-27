@@ -6,10 +6,11 @@ class FlashCard {
     this.score = 0
     this.display = document.querySelector('h2')
     this.input = document.querySelector('.input')
+    this.hintText = document.querySelector('main p')
   }
   showBack () {
     // show the back of the card
-    this.display.innerText = this.back 
+    this.display.innerText = this.back
   }
   check () {
     // compare the submission text to the answer and add one to the score
@@ -26,8 +27,7 @@ class FlashCard {
     }
   }
   showHint () {
-    const hintP = document.querySelector('main p')
-    hintP.innerHTML = this.hint
+    this.hintText.innerHTML = this.hint
   }
   showFront () {
     // show the front of the card instead of the back of the card
@@ -45,24 +45,39 @@ class Game {
       new FlashCard('お', 'o', 'looks like a UFO with an antenna')
     ]
     this.index = 0
+    this.currentCard = this.cards[this.index]
     this.hintButton = document.querySelector('.hint')
     this.hintButton.addEventListener('click', (e) => {
       e.preventDefault()
-      this.cards[this.index].showHint()
+      this.currentCard.showHint()
     })
     this.flipButton = document.querySelector('.flip')
     this.flipButton.addEventListener('click', (e) => {
       e.preventDefault()
-      this.cards[this.index].check()
-      this.cards[this.index].showBack()
+      this.currentCard.check()
+      this.currentCard.showBack()
     })
     this.nextButton = document.querySelector('.next')
     this.nextButton.addEventListener('click', (e) => {
       e.preventDefault()
-      this.index = this.index + 1
-      this.cards[this.index].showFront()
+      this.next()
     })
+  }
+  next () {
+    if (this.currentCard.display.innerText === this.currentCard.back) {
+      this.index = this.index + 1
+      this.currentCard = this.cards[this.index]
+      this.currentCard.showFront()
+      this.currentCard.hintText.innerHTML = ''
+    } else {
+      alert('Please make a guess before going to the next card')
+    }
   }
 }
 
 const game = new Game()
+
+// how to be more DRY with the this.cards[this.index]?
+// how to be more dry about the e.preventDefault()?
+// I feel like the event listeners aren't very readable. What would be a better way to do this?
+
