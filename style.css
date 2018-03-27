@@ -62,7 +62,7 @@ main {
   background: white;
   margin: 0px 0 10px 0;
   color: black;
-  padding: 0 0;
+  padding: 0;
 }
 
 h2 {
@@ -73,14 +73,18 @@ h2 {
 h3 {
   font-size: 40px;
   padding: 0;
-  margin: 0;
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 0;
+  padding: 0;
+  font-style: italic;
 }
 
 .submission {
   margin: 10px 0 20px 0;
 }
-
-.
 
 .input {
   width: 400px;

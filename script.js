@@ -13,7 +13,7 @@ class FlashCard {
     // show the back of the card
     this.display.innerText = this.back
   }
-  check () {
+  checkAnswer () {
     // compare the submission text to the answer and add one to the score
     if (this.display.innerText === this.front) {
       if (this.input.value === this.back) {
@@ -55,7 +55,7 @@ class Game {
     this.flipButton = document.querySelector('.flip')
     this.flipButton.addEventListener('click', (e) => {
       e.preventDefault()
-      this.currentCard.check()
+      this.currentCard.checkAnswer()
       this.currentCard.showBack()
     })
     this.nextButton = document.querySelector('.right')
@@ -70,9 +70,13 @@ class Game {
     })
   }
   next () {
-    // increase the index by one, check if we're at the end, show the next card's front, and clear the hint area
+    // increase the index by one and then clear and place new card
     this.index = this.index + 1
     this.currentCard = this.cards[this.index]
+    this.clearAndPlaceNewCard()
+  }
+  clearAndPlaceNewCard () {
+    // check if at end, clear the input, clear the result, and clear the hint
     this.checkIfAtEnd()
     this.currentCard.showFront()
     this.currentCard.input.value = ''
@@ -84,15 +88,13 @@ class Game {
     this.index === this.cards.length ? console.log('at end') : console.log('more to go')
   }
   goToPrevious () {
+    // if on back of card, flip over to front. If on front of card, go to previous card front
     if (this.currentCard.display.innerText === this.currentCard.back) {
       this.currentCard.showFront()
     } else {
       this.index = this.index - 1
       this.currentCard = this.cards[this.index]
-      this.currentCard.showFront()
-      this.currentCard.input.value = ''
-      this.currentCard.result.innerText = ''
-      this.currentCard.hintText.innerHTML = ''
+      this.clearAndPlaceNewCard()
     }
   }
 }
