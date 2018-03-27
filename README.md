@@ -66,3 +66,9 @@ Steps:
 6. Create the Hiragana instance of the cards class
     Add each hiragana object to an array, I guess. (Thursday)
 7. Refactor (Friday) 
+
+Monday Steps:
+1. Fix CSS to make prettier
+2. Fix HTMl to make prettier
+3. Ask about refactoring some of the text
+4. Think about how to do the end...

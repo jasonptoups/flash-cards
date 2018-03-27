@@ -7,6 +7,7 @@ class FlashCard {
     this.display = document.querySelector('h2')
     this.input = document.querySelector('.input')
     this.hintText = document.querySelector('main p')
+    this.result = document.querySelector('h3')
   }
   showBack () {
     // show the back of the card
@@ -15,18 +16,18 @@ class FlashCard {
   check () {
     // compare the submission text to the answer and add one to the score
     if (this.display.innerText === this.front) {
-      let result = document.querySelector('h3')
       if (this.input.value === this.back) {
         this.score++
-        result.innerText = 'Correct!'
+        this.result.innerText = 'Correct!'
       } else {
-        result.innerText = 'Close, but not quite'
+        this.result.innerText = 'Close, but not quite'
       }
     } else {
       console.log('display and front of card dont match')
     }
   }
   showHint () {
+    // make the hint visible
     this.hintText.innerHTML = this.hint
   }
   showFront () {
@@ -39,9 +40,9 @@ class Game {
   constructor () {
     this.cards = [
       new FlashCard('あ', 'a', 'looks like an Apple with a stem'),
-      new FlashCard('い', 'i', 'looks like two i\'s side by side'),
+      new FlashCard('い', 'i', 'looks like two I\'s side by side'),
       new FlashCard('う', 'u', 'looks like a man kicked in the stomach and flying sideways while saying \'Uuf\''),
-      new FlashCard('え', 'e', 'looks like an Energetic ninja running aw\'eh\''),
+      new FlashCard('え', 'e', 'looks like an Energetic ninja running away'),
       new FlashCard('お', 'o', 'looks like a UFO with an antenna')
     ]
     this.index = 0
@@ -64,14 +65,18 @@ class Game {
     })
   }
   next () {
-    if (this.currentCard.display.innerText === this.currentCard.back) {
-      this.index = this.index + 1
-      this.currentCard = this.cards[this.index]
-      this.currentCard.showFront()
-      this.currentCard.hintText.innerHTML = ''
-    } else {
-      alert('Please make a guess before going to the next card')
-    }
+    // increase the index by one, check if we're at the end, show the next card's front, and clear the hint area
+    this.index = this.index + 1
+    this.currentCard = this.cards[this.index]
+    this.checkIfAtEnd()
+    this.currentCard.showFront()
+    this.currentCard.input.value = ''
+    this.currentCard.result.innerText = ''
+    this.currentCard.hintText.innerHTML = ''
+  }
+  checkIfAtEnd () {
+    // decide what to do at the end...
+    this.index === this.cards.length ? console.log('at end') : console.log('more to go')
   }
 }
 
@@ -80,4 +85,3 @@ const game = new Game()
 // how to be more DRY with the this.cards[this.index]?
 // how to be more dry about the e.preventDefault()?
 // I feel like the event listeners aren't very readable. What would be a better way to do this?
-

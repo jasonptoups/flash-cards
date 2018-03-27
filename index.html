@@ -4,27 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Practice Hiragana</title>
 </head>
 <body>
+  <div class="background">
+  <div class="pink">
   <header>
     <h1>Practice Hiragana</h1>
   </header>
   <main>
-    <div class="card">
-      <h2>あ</h2>
+    <div class="cardwithbuttons">
+      <button class="arrow left"><i class= "fa   fa-angle-double-left"></i></button>
+      <div class="card">
+        <h2>あ</h2>
+      </div>
+      <button class="arrow right"><i class= "fa   fa-angle-double-right"></i></button>
     </div>
-    <h3></h3>
     <div class="submission">
       <input type="text" class="input">
       <input type="button" value="Flip" class="button flip">
     </div>
     <input type="button" value="Need a hint?" class="button hint">
+    <h3></h3>
     <p></p>
     <input type="button" value="Next Card" class="button next">
   </main>
-
+</div>
+</div>
   <script src="script.js"></script>
 </body>
 </html>
