@@ -7,9 +7,9 @@ class FlashCard {
     this.display = document.querySelector('h2')
     this.input = document.querySelector('.input')
   }
-  flip () {
-    // replace front text with back text.
-    this.display.innerText = this.back // need to figure out how to pass each card into the this...
+  showBack () {
+    // show the back of the card
+    this.display.innerText = this.back 
   }
   check () {
     // compare the submission text to the answer and add one to the score
@@ -28,6 +28,10 @@ class FlashCard {
   showHint () {
     const hintP = document.querySelector('main p')
     hintP.innerHTML = this.hint
+  }
+  showFront () {
+    // show the front of the card instead of the back of the card
+    this.display.innerText = this.front
   }
 }
 
@@ -50,22 +54,15 @@ class Game {
     this.flipButton.addEventListener('click', (e) => {
       e.preventDefault()
       this.cards[this.index].check()
-      this.cards[this.index].flip()
+      this.cards[this.index].showBack()
     })
     this.nextButton = document.querySelector('.next')
+    this.nextButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      this.index = this.index + 1
+      this.cards[this.index].showFront()
+    })
   }
 }
 
 const game = new Game()
-
-// game class
-// have an attribute which is current index
-// also store the cards in that game class
-
-// game class
-// this.cards = [
-//   new card ()
-//   new card ()
-// ]
-// this.index = 0
-// this.cards[this.index].name => the name of the first card
