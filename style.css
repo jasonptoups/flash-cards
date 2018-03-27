@@ -1,5 +1,5 @@
 body {
-  color: white;
+  color: black;
   padding: 0;
   margin: 0;
   background: black;
@@ -7,7 +7,8 @@ body {
 }
 
 .background {
-  background: url('images/hghask-ekorb-99323-unsplash.jpg');
+  /* background: url('images/hghask-ekorb-99323-unsplash.jpg'); */
+  background: url('images/kazuend-32605-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -18,7 +19,8 @@ body {
 }
 
 .pink {
-  background:#AD6968;
+  /* background:#AD6968; */
+  background: rgba(238, 197, 210, 0.897);
   margin: 40px auto;
   width: 800px;
   height: 90%;
@@ -49,9 +51,9 @@ main {
 
 .arrow {
 /* I got this idea from googling and W3 schools had instructions on how to use font awesome */
-  background: #AD6968;
+  background: snone;
   border: none;
-  color: white;
+  color: black;
   font-size: 80px;
   margin: auto 10px;
   cursor: pointer;
