@@ -47,34 +47,36 @@ class Game {
     ]
     this.index = 0
     this.currentCard = this.cards[this.index]
+
     this.hintButton = document.querySelector('.hint')
-    this.hintButton.addEventListener('click', (e) => {
-      e.preventDefault()
+    this.hintButton.addEventListener('click', () => {
       this.currentCard.showHint()
     })
+
     this.flipButton = document.querySelector('.flip')
-    this.flipButton.addEventListener('click', (e) => {
-      e.preventDefault()
+    this.flipButton.addEventListener('click', () => {
       this.currentCard.checkAnswer()
       this.currentCard.showBack()
     })
+
     this.nextButton = document.querySelector('.right')
-    this.nextButton.addEventListener('click', (e) => {
-      e.preventDefault()
+    this.nextButton.addEventListener('click', () => {
       this.next()
     })
+
     this.prevButton = document.querySelector('.left')
-    this.prevButton.addEventListener('click', (e) => {
-      e.preventDefault()
+    this.prevButton.addEventListener('click', () => {
       this.goToPrevious()
     })
   }
+
   next () {
     // increase the index by one and then clear and place new card
     this.index = this.index + 1
     this.currentCard = this.cards[this.index]
     this.clearAndPlaceNewCard()
   }
+
   clearAndPlaceNewCard () {
     // check if at end, clear the input, clear the result, and clear the hint
     this.checkIfAtEnd()
@@ -83,10 +85,12 @@ class Game {
     this.currentCard.result.innerText = ''
     this.currentCard.hintText.innerHTML = ''
   }
+
   checkIfAtEnd () {
     // decide what to do at the end...
     this.index === this.cards.length ? console.log('at end') : console.log('more to go')
   }
+  
   goToPrevious () {
     // if on back of card, flip over to front. If on front of card, go to previous card front
     if (this.currentCard.display.innerText === this.currentCard.back) {
@@ -101,7 +105,7 @@ class Game {
 
 const game = new Game()
 
-// how to be more DRY with the this.cards[this.index]?
-// how to be more dry about the e.preventDefault()?
 // I feel like the event listeners aren't very readable. What would be a better way to do this?
 // how to more easily add all the cards?
+
+// dynamic javascript attributes

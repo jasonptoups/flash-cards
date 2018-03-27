@@ -92,7 +92,8 @@ p {
   height: 30px;
   border: none;
   font-size: 18px;
-  /* why is this all weird when I change the font size? */
+  padding: 0 0 0 5px;
+  /* why does this not line up with the flip button? */
 }
 
 .button {
