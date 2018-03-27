@@ -48,6 +48,7 @@ main {
 }
 
 .arrow {
+/* I got this idea from googling and W3 schools had instructions on how to use font awesome */
   background: #AD6968;
   border: none;
   color: white;
@@ -87,9 +88,25 @@ p {
 }
 
 .input {
-  width: 400px;
+  width: 447px;
+  height: 30px;
+  border: none;
+  font-size: 18px;
+  /* why is this all weird when I change the font size? */
+}
+
+.button {
+  border: none;
+  text-align: center;
+  height: 30px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.flip {
+  width: 97px;
 }
 
 .hint {
-  width: 100px;
+  width: 150px;
 }
