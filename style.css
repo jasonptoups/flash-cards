@@ -7,7 +7,6 @@ body {
 }
 
 .background {
-  /* background: url('images/hghask-ekorb-99323-unsplash.jpg'); */
   background: url('images/kazuend-32605-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +18,6 @@ body {
 }
 
 .pink {
-  /* background:#AD6968; */
   background: rgba(238, 197, 210, 0.92);
   margin: 60px auto;
   width: 800px;
