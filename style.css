@@ -53,6 +53,7 @@ main {
   color: white;
   font-size: 80px;
   margin: auto 10px;
+  cursor: pointer;
 }
 
 .card {

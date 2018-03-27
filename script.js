@@ -58,10 +58,15 @@ class Game {
       this.currentCard.check()
       this.currentCard.showBack()
     })
-    this.nextButton = document.querySelector('.next')
+    this.nextButton = document.querySelector('.right')
     this.nextButton.addEventListener('click', (e) => {
       e.preventDefault()
       this.next()
+    })
+    this.prevButton = document.querySelector('.left')
+    this.prevButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      this.goToPrevious()
     })
   }
   next () {
@@ -78,6 +83,18 @@ class Game {
     // decide what to do at the end...
     this.index === this.cards.length ? console.log('at end') : console.log('more to go')
   }
+  goToPrevious () {
+    if (this.currentCard.display.innerText === this.currentCard.back) {
+      this.currentCard.showFront()
+    } else {
+      this.index = this.index - 1
+      this.currentCard = this.cards[this.index]
+      this.currentCard.showFront()
+      this.currentCard.input.value = ''
+      this.currentCard.result.innerText = ''
+      this.currentCard.hintText.innerHTML = ''
+    }
+  }
 }
 
 const game = new Game()
@@ -85,3 +102,4 @@ const game = new Game()
 // how to be more DRY with the this.cards[this.index]?
 // how to be more dry about the e.preventDefault()?
 // I feel like the event listeners aren't very readable. What would be a better way to do this?
+// how to more easily add all the cards?
