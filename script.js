@@ -88,9 +88,14 @@ class Game {
 
   checkIfAtEnd () {
     // decide what to do at the end...
-    this.index === this.cards.length ? console.log('at end') : console.log('more to go')
+    if (this.index === this.cards.length) {
+      this.index = 0
+      this.currentCard = this.cards[this.index]
+    } else {
+      console.log('more to go')
+    }
   }
-  
+
   goToPrevious () {
     // if on back of card, flip over to front. If on front of card, go to previous card front
     if (this.currentCard.display.innerText === this.currentCard.back) {
