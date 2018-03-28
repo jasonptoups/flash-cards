@@ -18,16 +18,19 @@ body {
 }
 
 aside {
-  width: 40px;
-  height: 25%;
+  width: 195px;
+  height: 40px;
   position: absolute;
   left: 0;
+  font-size: 20px;
+  transform: rotate(90deg) translateY(80px) translateX(75px);
+  padding: 10px 0 0 10px;
 }
 
 .instructions {
   background:darkred;
   color: white;
-  top: 12.5%
+  top: 12.5%;
 }
 
 .shortcuts {
