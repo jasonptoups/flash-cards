@@ -8,6 +8,7 @@ class FlashCard {
     this.input = document.querySelector('.input')
     this.hintText = document.querySelector('main p')
     this.result = document.querySelector('h3')
+    this.gameEnd = document.querySelector('h4')
   }
   showBack () {
     // show the back of the card
@@ -19,6 +20,7 @@ class FlashCard {
       if (this.input.value === this.back) {
         this.score++
         this.result.innerText = 'Correct!'
+        this.result.style.display = 'block'
       } else {
         this.result.innerText = 'Close, but not quite'
       }
@@ -74,28 +76,26 @@ class Game {
     // increase the index by one and then clear and place new card
     this.index = this.index + 1
     this.currentCard = this.cards[this.index]
-    this.clearAndPlaceNewCard()
+    this.checkIfAtEnd()
+    this.clear()
+    this.currentCard.showFront()
   }
 
-  clearAndPlaceNewCard () {
-    // check if at end, clear the input, clear the result, and clear the hint
-    this.checkIfAtEnd()
-    this.currentCard.showFront()
+  clear () {
     this.currentCard.input.value = ''
-    this.currentCard.result.innerText = ''
+    this.currentCard.result.style.display = 'none'
     this.currentCard.hintText.innerHTML = ''
   }
 
   checkIfAtEnd () {
-    // decide what to do at the end...
+    // shuffle and sort by score if at end
     if (this.index === this.cards.length) {
       this.shuffle()
       this.sortByScore()
       this.index = 0
       this.currentCard = this.cards[this.index]
-    } else {
-      console.log('more to go')
-    }
+      this.currentCard.gameEnd.style.display = 'block'
+    } else {}
   }
 
   shuffle () {
