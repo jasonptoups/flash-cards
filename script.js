@@ -16,11 +16,11 @@ class FlashCard {
   }
   checkAnswer () {
     // compare the submission text to the answer and add one to the score
+    this.result.style.display = 'block'
     if (this.display.innerText === this.front) {
       if (this.input.value === this.back) {
         this.score++
         this.result.innerText = 'Correct!'
-        this.result.style.display = 'block'
       } else {
         this.result.innerText = 'Close, but not quite'
       }
@@ -123,15 +123,45 @@ class Game {
     } else {
       this.index = this.index - 1
       this.currentCard = this.cards[this.index]
-      this.clearAndPlaceNewCard()
+      this.clear()
+      this.currentCard.showFront()
     }
   }
 }
 
-const game = new Game()
+class Display {
+  constructor () {
+    this.game = new Game()
+    this.keyPressed = null
+    this.keyLocation = null
+    window.addEventListener('keyup', (event) => {
+      this.keyPressed = event
+      this.keyLocation = event.path[0].classList[0]
+      if (this.keyPressed.key === 'ArrowLeft' && this.keyLocation !== 'input') {
+        this.arrowLeft()
+      } else if (this.keyPressed.key === 'ArrowRight' && this.keyLocation !== 'input') {
+        this.arrowRight()
+      } else if (this.keyPressed.key === 'h' && this.keyLocation !== 'input') {
+        this.h()
+      }
+    })
+  }
+  arrowLeft () {
+    this.game.goToPrevious()
+  }
 
-// put classes on some of the html and css elements so the code is easier to read and follow
-// add keyboard shortcut listeners
-// add default key into the answer box
+  arrowRight () {
+    this.game.next()
+  }
+
+  h () {
+    this.game.currentCard.showHint()
+  }
+}
+
+const display = new Display()
+
 // add window class with listeners to create hover with on keyboard shortcuts and 
+// add default key into the answer box
 // current score
+// how to suppress an event listener when in an input box?
