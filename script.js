@@ -89,11 +89,29 @@ class Game {
   checkIfAtEnd () {
     // decide what to do at the end...
     if (this.index === this.cards.length) {
+      this.shuffle()
+      this.sortByScore()
       this.index = 0
       this.currentCard = this.cards[this.index]
     } else {
       console.log('more to go')
     }
+  }
+
+  shuffle () {
+    // shuffle the cards in a random order
+    this.cards.sort(function (a, b) {
+      return 0.5 - Math.random()
+    })
+    console.log(this.cards)
+  }
+
+  sortByScore () {
+    // sort the cards in order of lowest to highest score, putting incorrect cards at the front
+    this.cards.sort(function (a, b) {
+      return a.score - b.score
+    })
+    console.log(this.cards)
   }
 
   goToPrevious () {
