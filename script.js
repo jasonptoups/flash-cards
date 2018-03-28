@@ -11,8 +11,9 @@ class FlashCard {
     this.gameEnd = document.querySelector('.game-end')
   }
   showBack () {
-    // show the back of the card
+    // show the back of the card and remove cursor from input box
     this.display.innerText = this.back
+    this.input.blur()
   }
   checkAnswer () {
     // compare the submission text to the answer and add one to the score
@@ -82,6 +83,7 @@ class Game {
   }
 
   clear () {
+    // clear the hint, input, and result areas
     this.currentCard.input.value = ''
     this.currentCard.result.style.display = 'none'
     this.currentCard.hintText.innerHTML = ''
@@ -143,6 +145,8 @@ class Display {
         this.arrowRight()
       } else if (this.keyPressed.key === 'h' && this.keyLocation !== 'input') {
         this.h()
+      } else if (this.keyPressed.key === 'Enter') {
+        this.enter()
       }
     })
   }
@@ -157,11 +161,16 @@ class Display {
   h () {
     this.game.currentCard.showHint()
   }
+
+  enter () {
+    this.game.currentCard.checkAnswer()
+    this.game.currentCard.showBack()
+  }
 }
 
 const display = new Display()
 
 // add window class with listeners to create hover with on keyboard shortcuts and 
-// add default key into the answer box
 // current score
+// add default key into the answer box
 // how to suppress an event listener when in an input box?

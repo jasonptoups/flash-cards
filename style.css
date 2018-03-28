@@ -17,6 +17,31 @@ body {
   height: 100%;
 }
 
+aside {
+  width: 40px;
+  height: 25%;
+  position: absolute;
+  left: 0;
+}
+
+.instructions {
+  background:darkred;
+  color: white;
+  top: 12.5%
+}
+
+.shortcuts {
+  background: red;
+  color: white;
+  top: 37.5%;
+}
+
+.score {
+  background: white;
+  color: black;
+  top: 62.5%;
+}
+
 .pink {
   background: rgba(238, 197, 210, 0.92);
   margin: 60px auto;
@@ -43,7 +68,7 @@ main {
   align-items: center;
 }
 
-.cardwithbuttons {
+.card-and-buttons {
   display: flex;
   justify-content: space-between;
 }

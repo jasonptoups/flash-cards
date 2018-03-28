@@ -11,29 +11,32 @@
 </head>
 <body>
   <div class="background">
-  <div class="pink">
-  <header>
-    <h1>Practice Hiragana</h1>
-  </header>
-  <main>
-    <div class="cardwithbuttons">
-      <button class="arrow left"><i class= "fa   fa-angle-double-left"></i></button>
-      <div class="card">
-        <h2 class="display">あ</h2>
-      </div>
-      <button class="arrow right"><i class= "fa   fa-angle-double-right"></i></button>
+    <aside class='instructions'>Instructions</aside>
+    <aside class='shortcuts'>ShtCuts</aside>
+    <aside class='score'>Score</aside>
+    <div class="pink">
+      <header>
+        <h1>Practice Hiragana</h1>
+      </header>
+      <main>
+        <div class="card-and-buttons">
+          <button class="arrow left"><i class= "fa   fa-angle-double-left"></i></button>
+          <div class="card">
+            <h2 class="display">あ</h2>
+          </div>
+          <button class="arrow right"><i class= "fa   fa-angle-double-right"></i></button>
+        </div>
+        <div class="submission">
+          <input type="text" class="input" placeholder="answer">
+          <input type="button" value="Flip" class="button flip">
+        </div>
+        <input type="button" value="Need a hint?" class="button hint">
+        <h3 class="result"></h3>
+        <p class="hint-text"></p>
+        <h4 class="game-end">Good job! We've reshuffled the deck for you</h4>
+      </main>
     </div>
-    <div class="submission">
-      <input type="text" class="input" placeholder="answer">
-      <input type="button" value="Flip" class="button flip">
-    </div>
-    <input type="button" value="Need a hint?" class="button hint">
-    <h3 class="result"></h3>
-    <p class="hint-text"></p>
-    <h4 class="game-end">Good job! We've reshuffled the deck for you</h4>
-  </main>
-</div>
-</div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
