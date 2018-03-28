@@ -170,7 +170,4 @@ class Display {
 
 const display = new Display()
 
-// add window class with listeners to create hover with on keyboard shortcuts and 
-// current score
-// add default key into the answer box
-// how to suppress an event listener when in an input box?
+// add listeners to create hover with on keyboard shortcuts and 
