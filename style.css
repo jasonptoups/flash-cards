@@ -67,12 +67,12 @@ main {
   padding: 0;
 }
 
-h2 {
+.display {
   font-size: 100px;
   text-align: center;
 }
 
-h3 {
+.result {
   font-size: 40px;
   padding: 0;
   margin: 10px 0;
@@ -80,13 +80,13 @@ h3 {
   display: none;
 }
 
-h4 {
+.game-end {
   font-size: 30px;
   padding: 0;
   display: none;
 }
 
-p {
+.hint-text {
   margin: 5px 0;
   padding: 0;
   font-style: italic;

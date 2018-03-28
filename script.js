@@ -4,11 +4,11 @@ class FlashCard {
     this.back = back
     this.hint = hint
     this.score = 0
-    this.display = document.querySelector('h2')
+    this.display = document.querySelector('.display')
     this.input = document.querySelector('.input')
-    this.hintText = document.querySelector('main p')
-    this.result = document.querySelector('h3')
-    this.gameEnd = document.querySelector('h4')
+    this.hintText = document.querySelector('.hint-text')
+    this.result = document.querySelector('.result')
+    this.gameEnd = document.querySelector('.game-end')
   }
   showBack () {
     // show the back of the card
@@ -88,14 +88,16 @@ class Game {
   }
 
   checkIfAtEnd () {
-    // shuffle and sort by score if at end
+    // shuffle and sort by score if at end. Otherwise, remove end-game text
     if (this.index === this.cards.length) {
       this.shuffle()
       this.sortByScore()
       this.index = 0
       this.currentCard = this.cards[this.index]
       this.currentCard.gameEnd.style.display = 'block'
-    } else {}
+    } else {
+      this.currentCard.gameEnd.style.display = 'none'
+    }
   }
 
   shuffle () {
@@ -128,7 +130,8 @@ class Game {
 
 const game = new Game()
 
-// I feel like the event listeners aren't very readable. What would be a better way to do this?
-// how to more easily add all the cards?
-
-// dynamic javascript attributes
+// put classes on some of the html and css elements so the code is easier to read and follow
+// add keyboard shortcut listeners
+// add default key into the answer box
+// add window class with listeners to create hover with on keyboard shortcuts and 
+// current score
