@@ -120,6 +120,10 @@ main {
   cursor: pointer;
 }
 
+.right {
+  transform: rotate(180deg)
+}
+
 .card {
   height: 200px;
   width: 400px;
@@ -131,6 +135,7 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
 }
 
 .display {
@@ -146,15 +151,19 @@ main {
 }
 
 .game-end {
-  font-size: 30px;
+  font-size: 25px;
   padding: 0;
   display: none;
+  margin: 0 auto;
+  width: 420px;
+  text-align: center;
 }
 
 .hint-text {
-  margin: 15px 0;
+  margin: 15px 0 0 0;
   padding: 0;
   font-style: italic;
+  font-size: 18px;
 }
 
 .submission {
@@ -162,7 +171,7 @@ main {
 }
 
 .input {
-  width: 447px;
+  width: 290px;
   height: 30px;
   border: none;
   font-size: 18px;
@@ -176,6 +185,7 @@ main {
   height: 30px;
   margin: 0;
   font-size: 18px;
+  border-radius: 3px;
 }
 
 .flip {
