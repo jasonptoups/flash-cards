@@ -115,7 +115,7 @@ main {
 /* I got this idea from googling and W3 schools had instructions on how to use font awesome */
   background: none;
   border: none;
-  color: black;
+  color: #332E2E;
   font-size: 80px;
   margin: auto 10px;
   cursor: pointer;
@@ -142,6 +142,10 @@ main {
 
 .handwritten {
   font-family: 'Nanum Pen Script', cursive;
+}
+
+.shadow {
+  box-shadow: 10px 10px 8px #726868;
 }
 
 .line {

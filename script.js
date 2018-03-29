@@ -124,8 +124,9 @@ class Game {
   flip () {
     this.currentCard.checkAnswer()
     this.currentCard.showBack()
-    this.cardDiv.style.background = "url('images/index-card.png')"
-    this.cardDiv.style.backgroundSize = 'cover'
+    // this.cardDiv.style.background = "url('images/index-card.png')"
+    // this.cardDiv.style.backgroundSize = 'cover'
+    this.cardDiv.classList.add('shadow')
     this.currentCard.display.classList.add('handwritten')
     this.currentCard.display.style.fontSize = '140px'
   }
@@ -136,8 +137,9 @@ class Game {
     this.currentCard = this.cards[this.index]
     this.checkIfAtEnd()
     this.clear()
-    this.cardDiv.style.background = ''
-    this.cardDiv.style.backgroundColor = 'white'
+    // this.cardDiv.style.background = ''
+    // this.cardDiv.style.backgroundColor = 'white'
+    this.cardDiv.classList.remove('shadow')
     this.currentCard.showFront()
   }
 
