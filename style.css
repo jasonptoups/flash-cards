@@ -129,6 +129,7 @@ main {
   height: 200px;
   width: 400px;
   background: white;
+  background-size: cover;
   margin: 0px 0 10px 0;
   color: black;
   padding: 0;
@@ -139,8 +140,20 @@ main {
   border-radius: 8px;
 }
 
+.handwritten {
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.line {
+  height: 50px;
+  width: 400px;
+  background: black;
+  border: 0
+}
+
 .display {
   font-size: 100px;
+  font-weight: 700;
 }
 
 .result {

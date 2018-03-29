@@ -9,6 +9,7 @@ class FlashCard {
     this.hintText = document.querySelector('.hint-text')
     this.result = document.querySelector('.result')
     this.gameEnd = document.querySelector('.game-end')
+    this.cardDiv = document.querySelector('.card')
   }
   showBack () {
     // show the back of the card and remove cursor from input box
@@ -36,6 +37,9 @@ class FlashCard {
   showFront () {
     // show the front of the card instead of the back of the card
     this.display.innerText = this.front
+    this.cardDiv.style.backgroundColor = 'white'
+    this.display.classList.remove('handwritten')
+    this.display.style.fontSize = '100px'
   }
 }
 
@@ -94,6 +98,7 @@ class Game {
     ]
     this.index = 0
     this.currentCard = this.cards[this.index]
+    this.cardDiv = document.querySelector('.card')
 
     this.hintButton = document.querySelector('.hint')
     this.hintButton.addEventListener('click', () => {
@@ -102,8 +107,7 @@ class Game {
 
     this.flipButton = document.querySelector('.flip')
     this.flipButton.addEventListener('click', () => {
-      this.currentCard.checkAnswer()
-      this.currentCard.showBack()
+      this.flip()
     })
 
     this.nextButton = document.querySelector('.right')
@@ -117,12 +121,23 @@ class Game {
     })
   }
 
+  flip () {
+    this.currentCard.checkAnswer()
+    this.currentCard.showBack()
+    this.cardDiv.style.background = "url('images/index-card.png')"
+    this.cardDiv.style.backgroundSize = 'cover'
+    this.currentCard.display.classList.add('handwritten')
+    this.currentCard.display.style.fontSize = '140px'
+  }
+
   next () {
     // increase the index by one and then clear and place new card
     this.index = this.index + 1
     this.currentCard = this.cards[this.index]
     this.checkIfAtEnd()
     this.clear()
+    this.cardDiv.style.background = ''
+    this.cardDiv.style.backgroundColor = 'white'
     this.currentCard.showFront()
   }
 
@@ -219,8 +234,7 @@ class Display {
   }
 
   enter () {
-    this.game.currentCard.checkAnswer()
-    this.game.currentCard.showBack()
+    this.game.flip()
   }
 }
 
