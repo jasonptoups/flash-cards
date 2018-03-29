@@ -42,11 +42,55 @@ class FlashCard {
 class Game {
   constructor () {
     this.cards = [
-      new FlashCard('あ', 'a', 'looks like an Apple with a stem'),
-      new FlashCard('い', 'i', 'looks like two I\'s side by side'),
-      new FlashCard('う', 'u', 'looks like a man kicked in the stomach and flying sideways while saying \'Uuf\''),
-      new FlashCard('え', 'e', 'looks like an Energetic ninja running away'),
-      new FlashCard('お', 'o', 'looks like a UFO with an antenna')
+      new FlashCard('あ', 'a', 'an Apple with a stem'),
+      new FlashCard('い', 'i', 'two I\'s side by side'),
+      new FlashCard('う', 'u', 'man kicked in the stomach and flying sideways while saying \'Uuf\''),
+      new FlashCard('え', 'e', 'Energetic ninja running away'),
+      new FlashCard('お', 'o', 'ufO with an antenna'),
+      new FlashCard('か', 'ka', 'KAr driving off a cliff'),
+      new FlashCard('き', 'ki', 'old fashioned KEY'),
+      new FlashCard('く', 'ku', 'beak of a KUku bird'),
+      new FlashCard('け', 'ke', 'shape of a KEg'),
+      new FlashCard('こ', 'ko', 'KOi fish swimming around each other'),
+      new FlashCard('さ', 'sa', 'SAd face looking back at you'),
+      new FlashCard('し', 'shi', 'SHIp\'s anchor'),
+      new FlashCard('す', 'su', 'pregnant woman SOOn expecting'),
+      new FlashCard('せ', 'se', 'two SAIling ships passing each other'),
+      new FlashCard('そ', 'so', 'SEWing stitch'),
+      new FlashCard('た', 'ta', 'looks literally like TA'),
+      new FlashCard('ち', 'chi', 'CHEERleader mad at sa for being similar'),
+      new FlashCard('つ', 'tsu', 'tsunami wave'),
+      new FlashCard('て', 'te', 'dog\'s TAIl'),
+      new FlashCard('と', 'to', 'TOe with a hangnail'),
+      new FlashCard('な', 'na', 'someone frying tuNA'),
+      new FlashCard('に', 'ni', 'looks like a KNEE'),
+      new FlashCard('ぬ', 'nu', 'NOOdles with two chopsticks'),
+      new FlashCard('ね', 'ne', 'sNAIl hiding behind a NAIl'),
+      new FlashCard('の', 'no', 'NO entry sign'),
+      new FlashCard('は', 'ha/wa', 'capital H with a lowercase A under it = HA'),
+      new FlashCard('ひ', 'hi', 'smiling mouth saying hi hi hi'),
+      new FlashCard('ふ', 'fu', 'nose smelling some FUmes'),
+      new FlashCard('へ', 'he', 'pointing to HEaven'),
+      new FlashCard('ほ', 'ho', 'HO spelled on its side and a line underneath'),
+      new FlashCard('ま', 'ma', 'MAn wearing a MAsk'),
+      new FlashCard('み', 'mi', 'like a musical note MI'),
+      new FlashCard('む', 'mu', 'a pierced cow\'s nose that says MUUUU'),
+      new FlashCard('め', 'me', 'same as nu but dropped some noodles and made a MEss'),
+      new FlashCard('も', 'mo', 'koMOdo dragon with a long tail'),
+      new FlashCard('や', 'ya', 'birds on a wiYA outside your YArd'),
+      new FlashCard('ゆ', 'yu', 'Jesus fish but spelled in Greek YUsus'),
+      new FlashCard('よ', 'yo', 'YO-YO dangling from a finger'),
+      new FlashCard('ら', 'ra', 'RAbbit bouncing away'),
+      new FlashCard('り', 'ri', 'looks like a RIver. Longer right stroke. '),
+      new FlashCard('る', 'ru', 'RUdder of a ship turning leaving a wake'),
+      new FlashCard('れ', 're', 'snake on the cross to REvive patients'),
+      new FlashCard('ろ', 'ro', 'rear with a ship with less wake because it\'s being ROwed'),
+      new FlashCard('わ', 'wa', ''),
+      new FlashCard('を', 'wo', 'WOman walking across a street'),
+      new FlashCard('ん', 'n', 'looks like a letter N')
+      // second javascript file that has a traditional javascript object. Array of objects
+      // Loop through the array of objects and create an instance of each object as a 
+      // this.cards = myarray.map(item => new Flashcard (item.name, item.front) )
     ]
     this.index = 0
     this.currentCard = this.cards[this.index]
@@ -154,6 +198,7 @@ class Display {
       aside.addEventListener('mouseover', () => {
         aside.classList.add('show')
         aside.lastElementChild.classList.add('show')
+        // add setTimeOut. Function which runs the above. Second argument is 300 or something. 
       })
       aside.addEventListener('mouseout', () => {
         aside.classList.remove('show')
