@@ -25,6 +25,7 @@ aside {
   padding: 10px 0 0 10px;
   color: white;
   border: 0;
+  transition: width .3s;
 }
 
 aside h2 {

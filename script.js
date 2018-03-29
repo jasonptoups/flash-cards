@@ -180,7 +180,6 @@ class Display {
 }
 
 const display = new Display()
-console.log(display.asides)
 
 // add listeners to create hover with on keyboard shortcuts and 
 // Add media queries to be mobile friendly
