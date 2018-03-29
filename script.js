@@ -149,6 +149,17 @@ class Display {
         this.enter()
       }
     })
+    this.asides = document.querySelectorAll('aside')
+    this.asides.forEach((aside) => {
+      aside.addEventListener('mouseover', () => {
+        aside.classList.add('show')
+        aside.lastElementChild.classList.add('show')
+      })
+      aside.addEventListener('mouseout', () => {
+        aside.classList.remove('show')
+        aside.lastElementChild.classList.remove('show')
+      })
+    })
   }
   arrowLeft () {
     this.game.goToPrevious()
@@ -169,5 +180,7 @@ class Display {
 }
 
 const display = new Display()
+console.log(display.asides)
 
 // add listeners to create hover with on keyboard shortcuts and 
+// Add media queries to be mobile friendly
