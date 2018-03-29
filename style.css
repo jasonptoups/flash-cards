@@ -37,10 +37,18 @@ aside h2 {
 }
 
 aside p {
-  margin: 0 40px 0 0;
+  margin: 0;
+  display: none;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+aside ol {
+  margin: 0 0 0 15px;
   font-size: 13px;
   line-height: 18px;
   display: none;
+  padding: 0;
 }
 
 aside div {
@@ -63,6 +71,14 @@ aside p.show {
 
 aside div.show {
   display: block
+}
+
+aside ol.show {
+  display: block;
+}
+
+br {
+  line-height: 30px;
 }
 
 .instructions {
