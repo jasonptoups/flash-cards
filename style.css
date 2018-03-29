@@ -19,7 +19,6 @@ body {
 
 aside {
   width: 30px;
-  height: 25%;
   position: absolute;
   left: 0;
   padding: 10px 0 0 10px;
@@ -60,21 +59,19 @@ aside div h3 {
   margin: 0;
 }
 
+aside div h3 ul {
+  padding: 0;
+  margin: 5px 40px 10px 0;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.show {
+  display: block;
+}
+
 aside.show {
   width: 300px
-}
-
-aside p.show {
-  display: block;
-  transition: display 1s;
-}
-
-aside div.show {
-  display: block
-}
-
-aside ol.show {
-  display: block;
 }
 
 br {
@@ -84,16 +81,19 @@ br {
 .instructions {
   background:#721633;
   top: 11%;
+  height: 23%;
 }
 
 .shortcuts {
   background: #953453;
-  top: 37.3%;
+  top: 35.3%;
+  height: 23%
 }
 
 .score {
   background: #B95D7A;
-  top: 63.6%;
+  top: 59.5%;
+  height: 30%
 }
 
 .pink {

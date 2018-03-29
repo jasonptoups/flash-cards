@@ -119,6 +119,9 @@ class Game {
     this.prevButton.addEventListener('click', () => {
       this.goToPrevious()
     })
+
+    this.highestScore = 0
+    this.possibleScores = []
   }
 
   flip () {
@@ -129,6 +132,9 @@ class Game {
     this.cardDiv.classList.add('shadow')
     this.currentCard.display.classList.add('handwritten')
     this.currentCard.display.style.fontSize = '140px'
+    this.checkHighScore()
+    this.addScoreHeaders()
+    this.arrangeScores()
   }
 
   next () {
@@ -189,6 +195,40 @@ class Game {
       this.clear()
       this.currentCard.showFront()
     }
+  }
+
+  checkHighScore () {
+    if (this.highestScore < Math.max(...this.cards.map((i) => i.score))) {
+      this.highestScore = Math.max(...this.cards.map((i) => i.score))
+      this.possibleScores = []
+      for (let i = this.highestScore; i > -1; i--) {
+        this.possibleScores.push(i)
+      }
+    } else {}
+  }
+
+  addScoreHeaders () {
+    let scoreDiv = document.querySelector('aside div')
+    scoreDiv.innerHTML = ''
+    this.possibleScores.forEach((score) => {
+      let scoreHeader = document.createElement('h3')
+      scoreHeader.innerHTML = `${score} time(s) correct:`
+      scoreHeader.setAttribute('data-score', score)
+      scoreDiv.appendChild(scoreHeader)
+    })
+  }
+
+  arrangeScores () {
+    this.possibleScores.forEach((score) => {
+      let cardsWithSameScore = this.cards.filter((card) => card.score === score)
+      let frontsWithSameScore = []
+      cardsWithSameScore.forEach((card) => {
+        frontsWithSameScore.push(card.front)
+      })
+      let spanScores = document.createElement('ul')
+      spanScores.innerHTML = frontsWithSameScore
+      document.querySelector(`h3[data-score*="${score}"]`).appendChild(spanScores)
+    })
   }
 }
 
