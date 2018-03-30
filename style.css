@@ -35,18 +35,18 @@ aside h2 {
   float: right;
 }
 
-aside p {
-  margin: 0;
-  display: none;
+.aside-text {
   font-size: 13px;
   line-height: 18px;
+  display: none;
+}
+
+aside p {
+  margin: 0;
 }
 
 aside ol {
   margin: 0 0 0 15px;
-  font-size: 13px;
-  line-height: 18px;
-  display: none;
   padding: 0;
 }
 
@@ -133,7 +133,6 @@ main {
 }
 
 .arrow {
-/* I got this idea from googling and W3 schools had instructions on how to use font awesome */
   background: none;
   border: none;
   color: #332E2E;
@@ -242,4 +241,3 @@ main {
   width: 190px;
   margin: 0 5px;
 }
-
