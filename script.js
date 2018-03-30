@@ -31,6 +31,7 @@ class FlashCard {
   showHint () {
     // make the hint visible
     this.hintText.innerHTML = this.hint
+    this.gameEnd.style.display = 'none'
   }
   showFront () {
     // show the front of the card instead of the back of the card
@@ -59,11 +60,13 @@ class Game {
     this.cardDiv = document.querySelector('.card')
   }
   flip () {
+    // flip card and check answer
     this.currentCard.checkAnswer()
     this.currentCard.showBack()
     this.cardDiv.classList.add('shadow')
     this.currentCard.display.classList.add('handwritten')
     this.currentCard.display.style.fontSize = '140px'
+    this.currentCard.gameEnd.style.display = 'none'
     this.checkHighScore()
     this.addScoreHeaders()
     this.arrangeScores()
@@ -74,36 +77,23 @@ class Game {
     this.currentCard = this.cards[this.index]
     this.checkIfAtEnd()
     this.currentCard.clear()
-    // this.cardDiv.style.background = ''
-    // this.cardDiv.style.backgroundColor = 'white'
     this.cardDiv.classList.remove('shadow')
     this.currentCard.showFront()
   }
   checkIfAtEnd () {
     // shuffle and sort by score if at end. Otherwise, remove end-game text
     if (this.index === this.cards.length) {
-      this.shuffle()
-      this.sortByScore()
-      this.index = 0
-      this.currentCard = this.cards[this.index]
-      this.currentCard.gameEnd.style.display = 'block'
+      this.shuffleAndSort()
     } else {
       this.currentCard.gameEnd.style.display = 'none'
     }
   }
-  shuffle () {
-    // shuffle the cards in a random order
-    this.cards.sort(function (a, b) {
-      return 0.5 - Math.random()
-    })
-    console.log(this.cards)
-  }
-  sortByScore () {
-    // sort the cards in order of lowest to highest score, putting incorrect cards at the front
-    this.cards.sort(function (a, b) {
-      return a.score - b.score
-    })
-    console.log(this.cards)
+  shuffleAndSort () {
+    this.cards.sort((a, b) => 0.5 - Math.random())
+    this.cards.sort((a, b) => a.score - b.score)
+    this.index = 0
+    this.currentCard = this.cards[this.index]
+    this.currentCard.gameEnd.style.display = 'block'
   }
   goToPrevious () {
     // if on back of card, flip over to front. If on front of card, go to previous card front
@@ -117,6 +107,7 @@ class Game {
     }
   }
   checkHighScore () {
+    // grab the highest score of all the cards and set the score range from 0 to highest score
     if (this.highestScore < Math.max(...this.cards.map((i) => i.score))) {
       this.highestScore = Math.max(...this.cards.map((i) => i.score))
       this.scoreRange = []
@@ -126,6 +117,7 @@ class Game {
     } else {}
   }
   addScoreHeaders () {
+    // for each score possible (0 to highest score), create a header in the scores box
     let scoreDiv = document.querySelector('aside div')
     scoreDiv.innerHTML = ''
     this.scoreRange.forEach((score) => {
@@ -136,6 +128,7 @@ class Game {
     })
   }
   arrangeScores () {
+    // place all the hiragana characters with each score under their appropriate header
     this.scoreRange.forEach((score) => {
       let cardsWithSameScore = this.cards.filter((card) => card.score === score)
       let frontsWithSameScore = []
@@ -190,15 +183,21 @@ class Display {
 
     this.prevButton = document.querySelector('.left')
     this.prevButton.addEventListener('click', () => this.game.goToPrevious())
+
+    this.shuffleButton = document.querySelector('.shuffle')
+    this.shuffleButton.addEventListener('click', () => {
+      this.game.shuffleAndSort()
+      this.game.next()
+      this.game.currentCard.gameEnd.style.display = 'block'
+    })
   }
 }
 
 const display = new Display()
 
-// add listeners to create hover with on keyboard shortcuts and
+// Add a shuffle button
+// Add a delay on the text appearing on hover
 // Add media queries to be mobile friendly
-
-// Figure out a way for the hint text to render as Bold and Red...
 // test CSS, HTML, and JS in a code review thing
 // write the README
 // If you have time, start working on a media query:
