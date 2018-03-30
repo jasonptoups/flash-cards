@@ -89,6 +89,7 @@ class Game {
     }
   }
   shuffleAndSort () {
+    // shuffle cards randomly then order by score
     this.cards.sort((a, b) => 0.5 - Math.random())
     this.cards.sort((a, b) => a.score - b.score)
     this.index = 0
@@ -149,7 +150,6 @@ class Display {
       aside.addEventListener('mouseover', () => {
         aside.classList.add('show')
         aside.lastElementChild.classList.add('show')
-        // add setTimeOut. Function which runs the above. Second argument is 300 or something. 
       })
       aside.addEventListener('mouseout', () => {
         aside.classList.remove('show')
@@ -195,10 +195,8 @@ class Display {
 
 const display = new Display()
 
-// Add a delay on the text appearing on hover
 // Add media queries to be mobile friendly
 // test CSS, HTML, and JS in a code review thing
-// write the README
 // If you have time, start working on a media query:
 // // Eliminate the shortcuts bar
 // // Resize the Instructions div and move it to the top of the page
