@@ -2,12 +2,11 @@ body {
   color: black;
   padding: 0;
   margin: 0;
-  background: black;
   font-family: 'Montserrat', sans-serif;
 }
 
 .background {
-  background: url('images/kazuend-32605-unsplash.jpg');
+  background: url('images/kazuend-32605-unsplash-ConvertImage.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
