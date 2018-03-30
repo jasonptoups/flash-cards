@@ -52,7 +52,6 @@ class Game {
   constructor () {
     this.cards = []
     this.cards = hiraganaArray.map(item => new FlashCard(item[0], item[1], item[2]))
-    console.log(this.cards)
     this.index = 0
     this.currentCard = this.cards[this.index]
     this.highestScore = 0
@@ -194,13 +193,3 @@ class Display {
 }
 
 const display = new Display()
-
-// Add media queries to be mobile friendly
-// test CSS, HTML, and JS in a code review thing
-// If you have time, start working on a media query:
-// // Eliminate the shortcuts bar
-// // Resize the Instructions div and move it to the top of the page
-// // Resize the Score div and move it to the bottom of the page
-// // Change both animations and listeners for the above
-// // Resize the main boxes
-// // Use smaller font sizes on everything
