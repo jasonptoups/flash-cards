@@ -195,7 +195,6 @@ class Display {
 
 const display = new Display()
 
-// Add a shuffle button
 // Add a delay on the text appearing on hover
 // Add media queries to be mobile friendly
 // test CSS, HTML, and JS in a code review thing
