@@ -97,7 +97,7 @@ br {
 
 .pink {
   background: rgba(238, 197, 210, 0.92);
-  margin: 60px auto 10px auto;
+  margin: 60px auto 0px auto;
   max-width: 600px;
   height: 600px;
   border-radius: 4%;
