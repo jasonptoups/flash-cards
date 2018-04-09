@@ -11,11 +11,13 @@ class FlashCard {
     this.gameEnd = document.querySelector('.game-end')
     this.cardDiv = document.querySelector('.card')
   }
+
   showBack () {
     // show the back of the card and remove cursor from input box
     this.display.innerText = this.back
     this.input.blur()
   }
+
   checkAnswer () {
     // compare the submission text to the answer and add one to the score
     this.result.style.display = 'block'
@@ -26,13 +28,15 @@ class FlashCard {
       } else {
         this.result.innerText = 'Close, but not quite'
       }
-    } else {}
+    }
   }
+
   showHint () {
     // make the hint visible
     this.hintText.innerHTML = this.hint
     this.gameEnd.style.display = 'none'
   }
+
   showFront () {
     // show the front of the card instead of the back of the card
     this.display.innerText = this.front
@@ -40,6 +44,7 @@ class FlashCard {
     this.display.classList.remove('handwritten')
     this.display.style.fontSize = '100px'
   }
+
   clear () {
     // clear the hint, input, and result areas
     this.input.value = ''
@@ -131,8 +136,12 @@ class Game {
     // place all the hiragana characters with each score under their appropriate header
     this.scoreRange.forEach((score) => {
       let cardsWithSameScore = this.cards.filter((card) => card.score === score)
+
       let frontsWithSameScore = []
       cardsWithSameScore.forEach((card) => { frontsWithSameScore.push(card.front) })
+      // // the above can be expressed in one line, also
+      // let frontsWithSameScore = cardsWithSameScore.map(card => card.front)
+
       let spanScores = document.createElement('ul')
       spanScores.innerHTML = frontsWithSameScore
       document.querySelector(`h3[data-score*="${score}"]`).appendChild(spanScores)
@@ -141,6 +150,11 @@ class Game {
 }
 
 class Display {
+  // You could move this class into another file to reduce the number of lines of code in this file.
+
+  // If you wanted them to be more independent of one another, you could then add a parameter to this class' constructor that would take a Game instance as an input, so you wouldn't have to create a new instance of a Game in this class' constructor
+
+  // Another approach involves inheriting from Game, calling super() and then changing all of your references to this.game.methodName() to this.methodName()
   constructor () {
     this.game = new Game()
     this.asides = document.querySelectorAll('aside')
@@ -157,6 +171,24 @@ class Display {
     })
     this.keyPressed = null
     this.cursorLocation = null
+
+    // You could move the callback function to .addEventListener into a instance method defined on the class, like this.handleKeyUp, and then reference it like
+
+    // window.addEventListener('keyup', this.handleKeyUp)
+    // handleKeyUp (event) {
+    //   this.keyPressed = event.key
+    //   this.cursorLocation = event.path[0].classList[0]
+    //   if (this.keyPressed === 'ArrowLeft' && this.cursorLocation !== 'input') {
+    //     this.game.goToPrevious()
+    //   } else if (this.keyPressed === 'ArrowRight' && this.cursorLocation !== 'input') {
+    //     this.game.next()
+    //   } else if (this.keyPressed === 'h' && this.cursorLocation !== 'input') {
+    //     this.game.currentCard.showHint()
+    //   } else if (this.keyPressed === 'Enter') {
+    //     this.game.flip()
+    //   }
+    // }
+
     window.addEventListener('keyup', (event) => {
       // Add listener for ArrowLeft, ArrowRight, h, and Enter to execute various functions
       this.keyPressed = event
@@ -171,6 +203,15 @@ class Display {
         this.game.flip()
       }
     })
+
+    // For this refactor approach below, you could change classNames to match method names. Hint is a little less descriptive of a method name though, additionally, you'd have to change the prevButton property to backButton for this to work
+    // You'd also have to refactor showHint to be in the gameClass, which possibly undermines the way you were thinking about what is handled by which class
+
+    // let methods = [ 'hint', 'flip', 'next', 'back']
+    // methods.forEach(method => this.game[`${method}Button`].addEventListener('click', this.game[method]))
+
+    // This is possibly less readable than your approach here, and you may feel it would not be worth it
+
     this.hintButton = document.querySelector('.hint')
     this.hintButton.addEventListener('click', () => this.game.currentCard.showHint())
 
