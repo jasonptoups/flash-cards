@@ -1,0 +1,1 @@
+I might consider making these images smaller for a faster load time: together they are around 8MB

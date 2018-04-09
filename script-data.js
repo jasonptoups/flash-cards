@@ -1,3 +1,5 @@
+// Could use objects instead of arrays as well
+
 let hiraganaArray = [
   ['あ', 'a', 'an <span>A</span>pple with a stem'],
   ['い', 'i', 'two <span>I\'s</span> side by side'],
@@ -46,3 +48,5 @@ let hiraganaArray = [
   ['を', 'wo', '<span>WO</span>man walking across a street'],
   ['ん', 'n', 'looks like a letter <span>N</span>']
 ]
+
+// Awesome that you broke out your data into a separate file here!
