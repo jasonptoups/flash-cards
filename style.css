@@ -140,10 +140,6 @@ main {
   cursor: pointer;
 }
 
-.right {
-  transform: rotate(180deg)
-}
-
 .card {
   height: 200px;
   width: 400px;
@@ -287,7 +283,7 @@ Also figure out why input and flip button are off by like 1 pixel */
   }
 
   .pink {
-    margin: 20px auto 0 auto;
+    margin: 40px auto 0 auto;
     padding: 0;
     height: 330px;
     width: 350px;
@@ -375,6 +371,7 @@ Also figure out why input and flip button are off by like 1 pixel */
   .results {
     font-size: 16px;
     margin: 5px 0 0 0;
+    height: 140px;
   }
 
   .hint-text {
@@ -389,11 +386,4 @@ Also figure out why input and flip button are off by like 1 pixel */
     margin-top: 5px
   }
 
-  .result {
-    font-size: 20px;
-    padding: 0;
-    margin: 5px 0 0 ;
-    text-align: center;
-    display: none;
-  }
 }
