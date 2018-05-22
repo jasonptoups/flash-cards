@@ -248,3 +248,152 @@ Change both animations and listeners for the above
 Resize the main boxes
 Use smaller font sizes on everything 
 Also figure out why input and flip button are off by like 1 pixel */
+
+@media only screen and (max-width: 768px) {
+  .shortcuts {
+    display: none;
+  }
+
+  aside {
+    width: 100%;
+    position: static;
+    padding: 10px 0 0 10px;
+    color: white;
+    border: 0;
+  }
+
+  .instructions {
+    top: 0;
+    height: 127px;
+  }
+
+  .aside-text {
+    display: block;
+  }
+  
+  aside.show {
+    width: 100%
+  }
+
+  aside div {
+    display: block;
+    height: 100%;
+  }
+  
+  .score {
+    background: #B95D7A;
+    height: 180px;
+    margin-top: 55px;
+  }
+
+  .pink {
+    margin: 20px auto 0 auto;
+    padding: 0;
+    height: 330px;
+    width: 350px;
+  }
+  
+  aside h2 {
+    margin: 0 0 7px 0;
+    font-size: 20px;
+    writing-mode: horizontal-tb;
+    position: static;
+    float: none;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+  
+  header {
+    padding: 5px 0 5px 0;
+  }
+
+  .card {
+    height: 100px;
+    width: 200px;
+  }
+
+  .arrow {
+    font-size: 50px;
+  }
+
+  .display {
+    font-size: 80px;
+  }
+
+  .input {
+    width: 195px;
+    font-size: 16px;
+    margin: 0 auto;
+    height: 25px;
+  }
+
+  .button.flip {
+    width: 110px;
+    margin-top: 10px;
+  }
+
+  .button {
+    border: none;
+    text-align: center;
+    height: 25px;
+    margin: 5px auto;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
+  .submission {
+    text-align: center;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hint-and-shuffle {
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .button.hint {
+    margin: 0;
+    width: 110px
+  }
+  
+  .button.shuffle {
+    margin-left: 7px;
+    width: 110px;
+  }
+
+  .result {
+    font-size: 16px;
+    margin: 5px 0 0 0;
+  }
+
+  .results {
+    font-size: 16px;
+    margin: 5px 0 0 0;
+  }
+
+  .hint-text {
+    font-size: 16px;
+    margin: 5px 0 0 0;
+  }
+
+  .game-end {
+    font-size: 16px;
+    width: 250px;
+    padding: 0;
+    margin-top: 5px
+  }
+
+  .result {
+    font-size: 20px;
+    padding: 0;
+    margin: 5px 0 0 ;
+    text-align: center;
+    display: none;
+  }
+}
